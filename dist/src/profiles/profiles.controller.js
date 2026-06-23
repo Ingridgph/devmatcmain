@@ -25,7 +25,7 @@ let ProfilesController = class ProfilesController {
         return this.profilesService.findAll();
     }
     findOne(id) {
-        return this.profilesService.findOne(id);
+        return this.profilesService.findOrFail(id);
     }
     create(createProfileDto) {
         return this.profilesService.create(createProfileDto);
