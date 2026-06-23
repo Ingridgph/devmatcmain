@@ -38,6 +38,11 @@ let ProfilesService = class ProfilesService {
         this.profiles.push(newProfile);
         return newProfile;
     }
+    patch(id, profile) {
+        const index = this.profiles.findIndex((p) => p.id === id);
+        this.profiles[index] = { ...this.profiles[index], ...profile };
+        return this.profiles[index];
+    }
 };
 exports.ProfilesService = ProfilesService;
 exports.ProfilesService = ProfilesService = __decorate([

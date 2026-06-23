@@ -28,10 +28,10 @@ let ProfilesController = class ProfilesController {
         return this.profilesService.findOne(id);
     }
     create(createProfileDTo) {
-        return { name: createProfileDTo.name, description: createProfileDTo.description };
+        return this.profilesService.create(createProfileDTo);
     }
     update(id, updateProfileDTo) {
-        return { id, description: updateProfileDTo.description };
+        return this.profilesService.patch(id, updateProfileDTo);
     }
     remove(id) { }
 };

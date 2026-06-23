@@ -17,11 +17,11 @@ constructor(private profilesService: ProfilesService){}
 
   @Post()
   create(@Body() createProfileDTo: CreateProfileDto) {
-    return { name: createProfileDTo.name, description: createProfileDTo.description };
+    return this.profilesService.create(createProfileDTo);
   }
   @Patch(':id')
   update(@Param('id') id:string, @Body() updateProfileDTo: UpdateProfileDto) {
-    return { id,  description: updateProfileDTo.description };
+    return this.profilesService.patch(id, updateProfileDTo);
   }
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)

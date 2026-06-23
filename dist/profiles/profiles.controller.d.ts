@@ -4,19 +4,23 @@ export declare class ProfilesController {
     private profilesService;
     constructor(profilesService: ProfilesService);
     findAll(): {
-        this.profilesService.findAll();
-    };
+        id: `${string}-${string}-${string}-${string}-${string}`;
+        name: string;
+        description: string;
+    }[];
     findOne(id: string): {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
         description: string;
     } | undefined;
     create(createProfileDTo: CreateProfileDto): {
+        id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
         description: string;
     };
     update(id: string, updateProfileDTo: UpdateProfileDto): {
-        id: string;
+        id: `${string}-${string}-${string}-${string}-${string}`;
+        name: string;
         description: string;
     };
     remove(id: string): void;
