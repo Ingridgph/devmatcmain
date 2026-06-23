@@ -12,69 +12,71 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProfilesController = void 0;
-const common_1 = require("@nestjs/common");
-const create_profile_dto_1 = require("./dto/create-profile.dto");
+exports.ProfilesResolver = void 0;
+const graphql_1 = require("@nestjs/graphql");
+const create_profile_input_1 = require("./dto/create-profile.input");
+const patch_profile_input_1 = require("./dto/patch-profile.input");
+const profile_model_1 = require("./model/profile.model");
 const profiles_service_1 = require("./profiles.service");
-let ProfilesController = class ProfilesController {
+let ProfilesResolver = class ProfilesResolver {
     profilesService;
     constructor(profilesService) {
         this.profilesService = profilesService;
     }
-    findAll() {
+    profiles() {
         return this.profilesService.findAll();
     }
-    findOne(id) {
+    profile(id) {
         return this.profilesService.findOrFail(id);
     }
-    create(createProfileDto) {
-        return this.profilesService.create(createProfileDto);
+    createProfile(input) {
+        return this.profilesService.create(input);
     }
-    update(id, updateProfileDto) {
-        return this.profilesService.patch(id, updateProfileDto);
+    updateProfile(id, input) {
+        return this.profilesService.patch(id, input);
     }
-    remove(id) {
+    deleteProfile(id) {
         return this.profilesService.remove(id);
     }
 };
-exports.ProfilesController = ProfilesController;
+exports.ProfilesResolver = ProfilesResolver;
 __decorate([
-    (0, common_1.Get)(),
+    (0, graphql_1.Query)(() => [profile_model_1.Profile]),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], ProfilesController.prototype, "findAll", null);
+], ProfilesResolver.prototype, "profiles", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, graphql_1.Query)(() => profile_model_1.Profile),
+    __param(0, (0, graphql_1.Args)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], ProfilesController.prototype, "findOne", null);
+], ProfilesResolver.prototype, "profile", null);
 __decorate([
-    (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)()),
+    (0, graphql_1.Mutation)(() => profile_model_1.Profile),
+    __param(0, (0, graphql_1.Args)('input')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_profile_dto_1.CreateProfileDto]),
+    __metadata("design:paramtypes", [create_profile_input_1.CreateProfileInput]),
     __metadata("design:returntype", void 0)
-], ProfilesController.prototype, "create", null);
+], ProfilesResolver.prototype, "createProfile", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
+    (0, graphql_1.Mutation)(() => profile_model_1.Profile),
+    __param(0, (0, graphql_1.Args)('id')),
+    __param(1, (0, graphql_1.Args)('input')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, create_profile_dto_1.UpdateProfileDto]),
+    __metadata("design:paramtypes", [String, patch_profile_input_1.PatchProfileInput]),
     __metadata("design:returntype", void 0)
-], ProfilesController.prototype, "update", null);
+], ProfilesResolver.prototype, "updateProfile", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, graphql_1.Mutation)(() => profile_model_1.Profile),
+    __param(0, (0, graphql_1.Args)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], ProfilesController.prototype, "remove", null);
-exports.ProfilesController = ProfilesController = __decorate([
-    (0, common_1.Controller)('profiles'),
+], ProfilesResolver.prototype, "deleteProfile", null);
+exports.ProfilesResolver = ProfilesResolver = __decorate([
+    (0, graphql_1.Resolver)(() => profile_model_1.Profile),
     __metadata("design:paramtypes", [profiles_service_1.ProfilesService])
-], ProfilesController);
-//# sourceMappingURL=profiles.controller.js.map
+], ProfilesResolver);
+//# sourceMappingURL=profiles.resolver.js.map

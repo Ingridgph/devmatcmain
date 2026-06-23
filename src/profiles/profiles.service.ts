@@ -1,11 +1,12 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateProfileDto, UpdateProfileDto } from './dto/create-profile.dto';
+import {  CreateProfileInput } from './dto/create-profile.input';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { PatchProfileInput } from './dto/patch-profile.input';
 
 @Injectable()
 export class ProfilesService {
   constructor(private prisma: PrismaService) {}
-  create(profile: CreateProfileDto) {
+  create(profile: CreateProfileInput) {
     return this.prisma.profile.create({
       data: profile,
     });
@@ -15,7 +16,7 @@ export class ProfilesService {
     return this.prisma.profile.findMany();
   }
 
-  async patch(id: string, profile: UpdateProfileDto) {
+  async patch(id: string, profile: PatchProfileInput) {
     await this.findOrFail(id);
     return this.prisma.profile.update({
       where: { id },

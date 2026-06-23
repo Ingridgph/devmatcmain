@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Profile {
+  id: String!
+  name: String!
+  description: String!
+}
+
+type Query {
+  profiles: [Profile!]!
+  profile(id: String!): Profile!
+}
+
+type Mutation {
+  createProfile(input: CreateProfileInput!): Profile!
+  updateProfile(id: String!, input: PatchProfileInput!): Profile!
+  deleteProfile(id: String!): Profile!
+}
+
+input CreateProfileInput {
+  name: String!
+  description: String!
+}
+
+input PatchProfileInput {
+  description: String!
+}
