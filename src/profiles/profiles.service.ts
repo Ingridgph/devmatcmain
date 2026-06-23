@@ -42,4 +42,9 @@ export class ProfilesService {
     this.profiles[index] = { ...this.profiles[index], ...profile };
     return this.profiles[index];
   }
+  remove(id: string) {
+    const index = this.profiles.findIndex((p) => p.id === id);
+    if (index === -1) return undefined;
+    return this.profiles.splice(index, 1)[0];
+  }
 }

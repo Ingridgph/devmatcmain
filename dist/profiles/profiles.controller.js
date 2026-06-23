@@ -33,7 +33,9 @@ let ProfilesController = class ProfilesController {
     update(id, updateProfileDTo) {
         return this.profilesService.patch(id, updateProfileDTo);
     }
-    remove(id) { }
+    remove(id) {
+        return this.profilesService.remove(id);
+    }
 };
 exports.ProfilesController = ProfilesController;
 __decorate([
