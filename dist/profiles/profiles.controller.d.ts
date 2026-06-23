@@ -1,7 +1,7 @@
 import { CreateProfileDto, UpdateProfileDto } from './dto/create-profile.dto';
 import { ProfilesService } from './profiles.service';
 export declare class ProfilesController {
-    private profilesService;
+    private readonly profilesService;
     constructor(profilesService: ProfilesService);
     findAll(): {
         id: `${string}-${string}-${string}-${string}-${string}`;
@@ -13,12 +13,12 @@ export declare class ProfilesController {
         name: string;
         description: string;
     };
-    create(createProfileDTo: CreateProfileDto): {
+    create(createProfileDto: CreateProfileDto): {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
         description: string;
     };
-    update(id: string, updateProfileDTo: UpdateProfileDto): {
+    update(id: string, updateProfileDto: UpdateProfileDto): {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
         description: string;

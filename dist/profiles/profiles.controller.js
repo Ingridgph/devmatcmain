@@ -27,11 +27,11 @@ let ProfilesController = class ProfilesController {
     findOne(id) {
         return this.profilesService.findOne(id);
     }
-    create(createProfileDTo) {
-        return this.profilesService.create(createProfileDTo);
+    create(createProfileDto) {
+        return this.profilesService.create(createProfileDto);
     }
-    update(id, updateProfileDTo) {
-        return this.profilesService.patch(id, updateProfileDTo);
+    update(id, updateProfileDto) {
+        return this.profilesService.patch(id, updateProfileDto);
     }
     remove(id) {
         return this.profilesService.remove(id);
