@@ -1,19 +1,26 @@
-import { Body, Controller , Delete, Get , Param, Patch, Post, Query,HttpCode,HttpStatus, HttpException} from '@nestjs/common';
-import { CreateProfileDto, UpdateProfileDto} from './dto/create-profile.dto';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
+import { CreateProfileDto, UpdateProfileDto } from './dto/create-profile.dto';
 import { ProfilesService } from './profiles.service';
 
 @Controller('profiles')
 export class ProfilesController {
-constructor(private profilesService: ProfilesService){}
+  constructor(private profilesService: ProfilesService) {}
   @Get()
   findAll() {
     return this.profilesService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id:string) {
+  findOne(@Param('id') id: string) {
     return this.profilesService.findOne(id);
-    
   }
 
   @Post()
@@ -21,14 +28,11 @@ constructor(private profilesService: ProfilesService){}
     return this.profilesService.create(createProfileDTo);
   }
   @Patch(':id')
-  update(@Param('id') id:string, @Body() updateProfileDTo: UpdateProfileDto) {
+  update(@Param('id') id: string, @Body() updateProfileDTo: UpdateProfileDto) {
     return this.profilesService.patch(id, updateProfileDTo);
   }
   @Delete(':id')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  remove(@Param('id') id:string) {
+  remove(@Param('id') id: string) {
     return this.profilesService.remove(id);
   }
-  
-
 }

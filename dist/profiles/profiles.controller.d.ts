@@ -12,7 +12,7 @@ export declare class ProfilesController {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
         description: string;
-    } | import("@nestjs/common").NotFoundException;
+    };
     create(createProfileDTo: CreateProfileDto): {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
@@ -27,5 +27,5 @@ export declare class ProfilesController {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
         description: string;
-    } | undefined;
+    };
 }

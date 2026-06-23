@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { ProfilesModule } from './profiles/profiles.module';
 
 @Module({
-  imports: [ ProfilesModule],
+  imports: [ProfilesModule],
   controllers: [AppController],
   providers: [AppService],
 })
