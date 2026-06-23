@@ -31,7 +31,10 @@ let ProfilesService = class ProfilesService {
         return this.profiles;
     }
     findOne(id) {
-        return this.profiles.find((profile) => profile.id === id);
+        const profile = this.profiles.find((profile) => profile.id === id);
+        if (!profile)
+            return new common_1.NotFoundException();
+        return profile;
     }
     create(profile) {
         const newProfile = { ...profile, id: (0, crypto_1.randomUUID)() };

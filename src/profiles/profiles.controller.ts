@@ -1,4 +1,4 @@
-import { Body, Controller , Delete, Get , Param, Patch, Post, Query,HttpCode,HttpStatus} from '@nestjs/common';
+import { Body, Controller , Delete, Get , Param, Patch, Post, Query,HttpCode,HttpStatus, HttpException} from '@nestjs/common';
 import { CreateProfileDto, UpdateProfileDto} from './dto/create-profile.dto';
 import { ProfilesService } from './profiles.service';
 
@@ -13,6 +13,7 @@ constructor(private profilesService: ProfilesService){}
   @Get(':id')
   findOne(@Param('id') id:string) {
     return this.profilesService.findOne(id);
+    
   }
 
   @Post()

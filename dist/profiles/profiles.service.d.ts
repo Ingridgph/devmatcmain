@@ -1,3 +1,4 @@
+import { NotFoundException } from '@nestjs/common';
 import { CreateProfileDto, UpdateProfileDto } from './dto/create-profile.dto';
 export declare class ProfilesService {
     private profiles;
@@ -10,7 +11,7 @@ export declare class ProfilesService {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
         description: string;
-    } | undefined;
+    } | NotFoundException;
     create(profile: CreateProfileDto): {
         id: `${string}-${string}-${string}-${string}-${string}`;
         name: string;
