@@ -33,6 +33,11 @@ let ProfilesService = class ProfilesService {
     findOne(id) {
         return this.profiles.find((profile) => profile.id === id);
     }
+    create(profile) {
+        const newProfile = { ...profile, id: (0, crypto_1.randomUUID)() };
+        this.profiles.push(newProfile);
+        return newProfile;
+    }
 };
 exports.ProfilesService = ProfilesService;
 exports.ProfilesService = ProfilesService = __decorate([

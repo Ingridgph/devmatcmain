@@ -1,7 +1,7 @@
 export declare class CreateProfileDto {
-    nome: string;
-    descricao: string;
+    name: string;
+    description: string;
 }
 export declare class UpdateProfileDto {
-    descricao: string;
+    description: string;
 }

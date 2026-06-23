@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateProfileDto = exports.CreateProfileDto = void 0;
 class CreateProfileDto {
-    nome;
-    descricao;
+    name;
+    description;
 }
 exports.CreateProfileDto = CreateProfileDto;
 class UpdateProfileDto {
-    descricao;
+    description;
 }
 exports.UpdateProfileDto = UpdateProfileDto;
 //# sourceMappingURL=create-profile.dto.js.map

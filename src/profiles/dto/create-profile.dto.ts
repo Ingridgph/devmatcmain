@@ -1,9 +1,7 @@
 export class CreateProfileDto {
-    nome: string;
-      descricao: string;
-   
+    name: string;
+    description: string;
 }
 export class UpdateProfileDto {
-      descricao: string;
-   
+    description: string;
 }
