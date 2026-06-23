@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import {  CreateProfileInput } from './dto/create-profile.input';
+import { CreateProfileInput } from './dto/create-profile.input';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { PatchProfileInput } from './dto/patch-profile.input';
 

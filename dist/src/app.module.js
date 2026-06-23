@@ -26,7 +26,8 @@ exports.AppModule = AppModule = __decorate([
             graphql_1.GraphQLModule.forRoot({
                 driver: apollo_1.ApolloDriver,
                 autoSchemaFile: (0, path_1.join)(process.cwd(), 'src/schema.gql'),
-                playground: true,
+                playground: false,
+                csrfPrevention: false,
             }),
             profiles_module_1.ProfilesModule,
             prisma_module_1.PrismaModule,
